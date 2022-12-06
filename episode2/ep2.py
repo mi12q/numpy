@@ -5,7 +5,6 @@ import glob
 signals = []
 new_signals = []
 
-
 def mov_avg(a, n=10):
     ret = np.cumsum(a, dtype=float)
     ret[n:] = ret[n:] - ret[:-n]
