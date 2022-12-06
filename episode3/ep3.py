@@ -18,6 +18,7 @@ n = len(data)
 A = np.zeros((n,n),float)
 A.flat[0::n+1] = 1
 A.flat[n::n+1] = -1
+A[0][-1] = -1
 
 print(A)
 
@@ -26,7 +27,6 @@ for i in range(0,255):
     all_data.append(data)
 
 fig, ax = plt.subplots()
-
 
 def animate(i):
     ax.clear()
@@ -41,6 +41,6 @@ def animate(i):
 
 anim = FuncAnimation(fig, animate, frames=255, interval=500, repeat=False)
 anim.save("animation.gif", dpi=300,
-         writer=PillowWriter(fps=5))
+         writer=PillowWriter(fps=10))
 
 plt.show()
